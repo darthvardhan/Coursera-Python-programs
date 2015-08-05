@@ -1,0 +1,68 @@
+#calculator orogram
+"""
+enter an operand first and swap with store then enter another operand 
+"""
+#import the simpleGUI module
+import simplegui
+
+#define globals
+store = 0
+operand = 0
+
+#define helper functions
+#not required here
+    
+#define event handlers
+def output():
+    print "Store = ", store
+    print "Operand = ", operand
+    print " "
+    
+def swap():
+    global store, operand
+    store, operand = operand, store
+    output()
+
+def add():
+    global store, operand
+    store = store + operand
+    output()
+    
+def subtract():
+    global store, operand 
+    store = store - operand
+    output()
+
+def multiply():
+    global store, operand
+    store = store * operand
+    output ()
+    
+def divide():
+    global store, operand
+    store = store / operand
+    output()
+
+def enter(inp):
+    global operand 
+    operand = float(inp)
+    output()
+    
+#create frame
+frame = simplegui.create_frame("Interactive calculator", 300, 300)
+
+#register event handlers
+frame.add_button("Print", output, 200)
+frame.add_button("Swap", swap, 200)
+frame.add_button("Add", add, 200)
+frame.add_button("Subtract", subtract, 200)
+frame.add_button("Multiply", multiply, 200)
+frame.add_button("Divide", divide, 200)
+frame.add_input("Enter operand", enter, 200)
+
+#start frame, timer, etc.
+frame.start()
+
+#function calls
+#output()
+#swap()
