@@ -1,0 +1,52 @@
+#import modules
+import simplegui
+import random
+
+#define event handlers
+def number_to_fortune(number):
+    # Use an if...elif...else statement
+    # to check each of the numbers between 0 and 7
+    # and return the fortune as a string.
+    if (number == 0):
+        number = "Yes, for sure"
+    elif (number == 1):
+        number = "Probably yes."
+    elif (number == 2):
+        number = "Seems like yes..."
+    elif (number == 3):
+        number = "Definitely not!"
+    elif (number == 4):
+        number = "Probably not"
+    elif (number == 5):
+        number = "I really doubt it..."
+    elif (number == 6):
+        number = "Not sure, check back later"
+    elif (number == 7):
+        number = "I really can't tell"
+    else:
+        print "Error: Bad input, try again."
+    return number    
+
+def mystical_octosphere(question):
+    #prints out a random number to give out an answer
+    print question
+    print "You shake the mystical octosphere"
+    
+    answer_number = random.randrange(0, 8)
+    
+    number_to_fortune(answer_number)
+    
+    print "The cloudy liquid swirls..."
+    print "The mystical octosphere says " + number_to_fortune(answer_number)
+    
+    print " "
+    
+def ask_question(txt):
+    mystical_octosphere(txt)
+    
+#create frame and input field    
+frame = simplegui.create_frame("Mystical Octosphere", 50, 100) 
+frame.add_input("What is on your mind?", ask_question, 200)
+  
+#start frame
+frame.start()
